@@ -12,7 +12,6 @@ import 'data/repository_imp/repositoryImp.dart';
 
 main() {
   runApp(const MyApp());
-
 }
 
 class MyApp extends StatelessWidget {
@@ -22,7 +21,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: MainView(),
+      home: const MainView(),
       theme: ThemeManager.lightTheme,
     );
   }

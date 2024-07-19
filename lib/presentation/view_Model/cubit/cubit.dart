@@ -13,20 +13,23 @@ class ProductsCubit extends Cubit<CubitStates> {
   late Data data;
   late ProductsRepository repo;
 
-  getProducts() async {
-    try {
-      emit(Loading());
-      data = OnlineData(apiManger.freeDio);
-      repo = ProductsRepositoryImp( data);
-      print('Fetching products...');
-      var result = await repo.fromApi();
-      print('Products fetched: $result');
-      emit(Success(result));
-    } catch (e) {
-      print('Error fetching products: $e');
-      emit(Error(e.toString()));
-    }
+
+Future<bool> getProducts()  async{
+  try {
+    emit(Loading());
+    data = OnlineData();
+    repo = ProductsRepositoryImp(data);
+    print('Fetching products...');
+    var result = await repo.fromApi();
+    print('Products fetched: $result');
+    emit(Success(result));
+    return true;
+  } catch (e) {
+    print('Error fetching products: $e');
+    emit(Error(e.toString()));
+    return false;
   }
+}
 }
 
 

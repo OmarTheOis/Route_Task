@@ -5,7 +5,7 @@ sealed class CubitStates {}
 
 class Loading extends CubitStates{}
 class Success extends CubitStates{
-   List<ProductsModel> dataList;
+   List<ProductEntities> dataList;
   Success(this.dataList);
 }
 class Error extends CubitStates{
